@@ -21,6 +21,7 @@
 		9C0F441419AA457400F6896B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C0F43F619AA457400F6896B /* UIKit.framework */; };
 		9C0F441C19AA457400F6896B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9C0F441A19AA457400F6896B /* InfoPlist.strings */; };
 		9C0F441E19AA457400F6896B /* runToExitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F441D19AA457400F6896B /* runToExitTests.m */; };
+		9C0F442E19AA4F7600F6896B /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F442D19AA4F7600F6896B /* Settings.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		9C0F441919AA457400F6896B /* runToExitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "runToExitTests-Info.plist"; sourceTree = "<group>"; };
 		9C0F441B19AA457400F6896B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9C0F441D19AA457400F6896B /* runToExitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = runToExitTests.m; sourceTree = "<group>"; };
+		9C0F442C19AA4F7600F6896B /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		9C0F442D19AA4F7600F6896B /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +115,10 @@
 		9C0F43F819AA457400F6896B /* runToExit */ = {
 			isa = PBXGroup;
 			children = (
-				9C0F440119AA457400F6896B /* AppDelegate.h */,
-				9C0F440219AA457400F6896B /* AppDelegate.m */,
-				9C0F440419AA457400F6896B /* Main.storyboard */,
-				9C0F440719AA457400F6896B /* ViewController.h */,
-				9C0F440819AA457400F6896B /* ViewController.m */,
+				9C0F442B19AA4F5E00F6896B /* Model */,
+				9C0F442919AA4E1F00F6896B /* View */,
+				9C0F442819AA4E0E00F6896B /* Root */,
+				9C0F442719AA4DFC00F6896B /* Controller */,
 				9C0F440A19AA457400F6896B /* Images.xcassets */,
 				9C0F43F919AA457400F6896B /* Supporting Files */,
 			);
@@ -150,6 +152,41 @@
 				9C0F441A19AA457400F6896B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9C0F442719AA4DFC00F6896B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9C0F440719AA457400F6896B /* ViewController.h */,
+				9C0F440819AA457400F6896B /* ViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		9C0F442819AA4E0E00F6896B /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				9C0F440119AA457400F6896B /* AppDelegate.h */,
+				9C0F440219AA457400F6896B /* AppDelegate.m */,
+			);
+			name = Root;
+			sourceTree = "<group>";
+		};
+		9C0F442919AA4E1F00F6896B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9C0F440419AA457400F6896B /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		9C0F442B19AA4F5E00F6896B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9C0F442C19AA4F7600F6896B /* Settings.h */,
+				9C0F442D19AA4F7600F6896B /* Settings.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +288,7 @@
 			files = (
 				9C0F440919AA457400F6896B /* ViewController.m in Sources */,
 				9C0F440319AA457400F6896B /* AppDelegate.m in Sources */,
+				9C0F442E19AA4F7600F6896B /* Settings.m in Sources */,
 				9C0F43FF19AA457400F6896B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,10 +414,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Humberto Sampaio (WB6FHFDGC3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "runToExit/runToExit-Prefix.pch";
 				INFOPLIST_FILE = "runToExit/runToExit-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "66166c4f-8801-4d2d-8762-8c687f3b6367";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -389,10 +429,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Humberto Sampaio (5U294U2N56)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "runToExit/runToExit-Prefix.pch";
 				INFOPLIST_FILE = "runToExit/runToExit-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6df861f1-5c17-4674-9f12-da3983fe7eab";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -456,6 +498,7 @@
 				9C0F442319AA457400F6896B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9C0F442419AA457400F6896B /* Build configuration list for PBXNativeTarget "runToExitTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +507,7 @@
 				9C0F442619AA457400F6896B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

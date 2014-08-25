@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Settings.h"
 
 @interface ViewController : UIViewController
+
+@property (nonatomic,strong) Settings *settings;
+
+// area (row) size
+@property float areaWidth;
+@property float areaHeight;
+
 
 @end
