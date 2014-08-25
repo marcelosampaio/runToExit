@@ -11,7 +11,6 @@
 // defines quantity of rows in the main UI
 #define AREA_COUNT      4
 
-
 @interface Settings : NSObject
 
 @end

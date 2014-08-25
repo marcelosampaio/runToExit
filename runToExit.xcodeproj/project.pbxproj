@@ -22,6 +22,7 @@
 		9C0F441C19AA457400F6896B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9C0F441A19AA457400F6896B /* InfoPlist.strings */; };
 		9C0F441E19AA457400F6896B /* runToExitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F441D19AA457400F6896B /* runToExitTests.m */; };
 		9C0F442E19AA4F7600F6896B /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F442D19AA4F7600F6896B /* Settings.m */; };
+		9C430C2B19AB6A54009A9F55 /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C430C2A19AB6A54009A9F55 /* Character.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		9C0F441D19AA457400F6896B /* runToExitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = runToExitTests.m; sourceTree = "<group>"; };
 		9C0F442C19AA4F7600F6896B /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		9C0F442D19AA4F7600F6896B /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		9C430C2919AB6A54009A9F55 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
+		9C430C2A19AB6A54009A9F55 /* Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Character.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +188,8 @@
 			children = (
 				9C0F442C19AA4F7600F6896B /* Settings.h */,
 				9C0F442D19AA4F7600F6896B /* Settings.m */,
+				9C430C2919AB6A54009A9F55 /* Character.h */,
+				9C430C2A19AB6A54009A9F55 /* Character.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C0F440919AA457400F6896B /* ViewController.m in Sources */,
+				9C430C2B19AB6A54009A9F55 /* Character.m in Sources */,
 				9C0F440319AA457400F6896B /* AppDelegate.m in Sources */,
 				9C0F442E19AA4F7600F6896B /* Settings.m in Sources */,
 				9C0F43FF19AA457400F6896B /* main.m in Sources */,

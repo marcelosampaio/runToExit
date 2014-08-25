@@ -15,6 +15,7 @@
 @implementation ViewController
 
 @synthesize settings,areaHeight,areaWidth;
+@synthesize character,area0Tag,area0Timer;
 
 
 #pragma mark - View Life Cycle
@@ -34,18 +35,16 @@
     self.areaWidth=self.view.frame.size.width;
     self.areaHeight=self.view.frame.size.height/AREA_COUNT;
     
-    float temp=0.00f;
-    
+    // define and add areas (rows) to UI
+    float y=0.00f;
     for (int i=0; i<AREA_COUNT; i++) {
-        if (i==0) {
-            [self addAreaWithIndex:i y:temp];
-        } else {
-            [self addAreaWithIndex:i y:temp];
-        }
-        temp=temp+self.areaHeight;
+        [self addAreaWithIndex:i y:y];
+        [self addCharacterIndex:i yPosition:self.areaHeight*i];
+        y=y+self.areaHeight;
     }
-    
 }
+
+
 
 -(void)addAreaWithIndex:(int)i y:(float)y {
     // add Area to UI
@@ -55,20 +54,28 @@
     imageView.image=[UIImage imageNamed:@"jungle"];
 
     [self.view addSubview:imageView];
-    
-    // add character to area
-    [self addCharacterIndex:i yPosition:y];
+//    
+//    // add character to area
+//    [self addCharacterIndex:i yPosition:y];
     
 }
 
 -(void)addCharacterIndex:(int)i yPosition:(float)y {
-    NSLog(@"## add Character in area %d  yPosition=%f",i,y);
+
+    self.character=[[Character alloc]init];
+    
     CGRect rect;
     UIImageView *imageView=[[UIImageView alloc]init];
     if (i==0) {
-        rect=CGRectMake(0, y+56+4, 46.6, 56);
+//        rect=CGRectMake(0, y+56+4, 46.6, 56);
+        CGPoint point=CGPointMake(0, y+56+4);
+        CGSize size=CGSizeMake(46.6, 56);
+        rect = CGRectMake(point.x, point.y, size.width, size.height);
         imageView=[[UIImageView alloc]initWithFrame:rect];
         imageView.image=[UIImage imageNamed:@"monkey_run_1"];
+        imageView.tag=self.area0Tag;
+        self.area0Tag++;
+        
     }else if (i==1) {
         rect=CGRectMake(self.areaWidth-46.6, y+56+4, 46.6, 56);
         imageView=[[UIImageView alloc]initWithFrame:rect];
@@ -78,16 +85,18 @@
         imageView=[[UIImageView alloc]initWithFrame:rect];
         imageView.image=[UIImage imageNamed:@"monkey_walk_1"];
     }else {
-        rect=CGRectMake(self.areaWidth-46.6, y+56+14, 46, 44);
+        rect=CGRectMake(self.areaWidth-46.6, y+56+14, 46.6, 44);
         imageView=[[UIImageView alloc]initWithFrame:rect];
         imageView.image=[UIImage imageNamed:@"bear1"];
     }
-    
-    imageView.tag=1000;
-    
+
     [self.view addSubview:imageView];
 }
 
+#pragma mark - Timer Methods
+-(void)animateRow0 {
+    NSLog(@"animating row 0.");
+}
 
 #pragma mark - Status Bar
 -(BOOL)prefersStatusBarHidden {
