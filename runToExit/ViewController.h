@@ -46,6 +46,7 @@
 @property (nonatomic,strong) NSMutableArray *area0Characters;
 @property (nonatomic,strong) NSMutableArray *area1Characters;
 @property (nonatomic,strong) NSMutableArray *area2Characters;
+@property (nonatomic,strong) NSMutableArray *area3Characters;
 // Characters images for animation
 @property (nonatomic,strong) NSMutableArray *area0Images;
 @property (nonatomic,strong) NSMutableArray *area1Images;
