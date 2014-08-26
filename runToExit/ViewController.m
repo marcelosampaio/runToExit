@@ -20,7 +20,7 @@
 @synthesize area0ImageSequenceNumber,area1ImageSequenceNumber,area2ImageSequenceNumber,area3ImageSequenceNumber;
 @synthesize area0Characters,area1Characters,area2Characters,area3Characters;
 @synthesize area0GeneratorTimer,area1GeneratorTimer,area2GeneratorTimer,area3GeneratorTimer;
-
+@synthesize alerts;
 
 #pragma mark - View Life Cycle
 - (void)viewDidLoad
@@ -44,11 +44,15 @@
     // set up images for animations
     [self setUpImagesForAnimations];
     
+    // Characters in the UI - not used
     self.area0Characters=[[NSMutableArray alloc]init];
     self.area1Characters=[[NSMutableArray alloc]init];
     self.area2Characters=[[NSMutableArray alloc]init];
     self.area3Characters=[[NSMutableArray alloc]init];
     
+    // Alerts sent by the character when near row's end
+    self.alerts=[[NSMutableDictionary alloc]init];
+
     // tags
     self.area0Tag=1000;
     self.area1Tag=2000;
@@ -257,7 +261,9 @@
     // Remove character from area 0
     for (UIView *view in self.view.subviews) {
         if (view.tag>=1000 && view.tag<=1999) {
-
+            // Send an alert to user. The end is near
+            [self checkAlertWithView:view index:0];
+            
             if (view.center.x<=self.areaWidth+25) {
                 characterDeleted=[[Character alloc]initWithRectangle:view.frame imageName:imageName tag:view.tag];
                 [deleted addObject:characterDeleted];
@@ -300,6 +306,9 @@
     // Remove character from area 1
     for (UIView *view in self.view.subviews) {
         if (view.tag>=2000 && view.tag<=2999) {
+            // Send an alert to user. The end is near
+            [self checkAlertWithView:view index:1];
+            
             if (view.center.x>=-25) {
                 characterDeleted=[[Character alloc]initWithRectangle:view.frame imageName:imageName tag:view.tag];
                 [deleted addObject:characterDeleted];
@@ -339,6 +348,8 @@
     // Remove character from area 2
     for (UIView *view in self.view.subviews) {
         if (view.tag>=3000 && view.tag<=3999) {
+            // Send an alert to user. The end is near
+            [self checkAlertWithView:view index:2];
             
             if (view.center.x<=self.areaWidth+25) {
                 characterDeleted=[[Character alloc]initWithRectangle:view.frame imageName:imageName tag:view.tag];
@@ -379,9 +390,12 @@
     Character *characterDeleted=[[Character alloc]init];
     NSString *imageName=[self.area3Images objectAtIndex:self.area3ImageSequenceNumber];
     //
-    // Remove character from area 1
+    // Remove character from area 3
     for (UIView *view in self.view.subviews) {
         if (view.tag>=4000 && view.tag<=4999) {
+            // Send an alert to user. The end is near
+            [self checkAlertWithView:view index:3];
+            
             if (view.center.x>=-25) {
                 characterDeleted=[[Character alloc]initWithRectangle:view.frame imageName:imageName tag:view.tag];
                 [deleted addObject:characterDeleted];
@@ -473,6 +487,58 @@
     [self addCharacterAtIndex:3 position:CGPointMake(self.areaWidth+46.6, self.areaHeight*1) tag:self.area3Tag];
 }
 
+#pragma mark - Working Methods
+-(void)checkAlertWithView:(UIView *)view index:(int)i {
+    BOOL alert=NO;
+    if (i==0 || i==2) {
+        if (view.center.x>=self.view.frame.size.width-100) {
+            // Store tag in alert dictionary
+            NSString *tagString=[self.alerts objectForKey:[NSString stringWithFormat:@"%d",view.tag]];
+            if ([tagString intValue]==view.tag) {
+                return;
+            }
+            [self.alerts setObject:[NSString stringWithFormat:@"%d",view.tag] forKey:[NSString stringWithFormat:@"%d",view.tag]];
+            // Execute alert procedures
+            alert=YES;
+        }
+    } else {
+        if (view.center.x<=100) {
+            // Store tag in alert dictionary
+            NSString *tagString=[self.alerts objectForKey:[NSString stringWithFormat:@"%d",view.tag]];
+            if ([tagString intValue]==view.tag) {
+                return;
+            }
+            [self.alerts setObject:[NSString stringWithFormat:@"%d",view.tag] forKey:[NSString stringWithFormat:@"%d",view.tag]];
+            // Execute alert procedures
+            alert=YES;
+        }
+    }
+    
+    // Alert
+    if (alert) {
+        [self sendAlertAtIndex:i view:view];
+    }
+}
+
+-(void)sendAlertAtIndex:(int)i view:(UIView *)view {
+    CGPoint point;
+    CGSize size;
+
+    if (i==0 || i==2) {
+        point=CGPointMake(self.areaWidth-20, self.areaHeight*i);
+        size=CGSizeMake(22, self.areaHeight-20);
+    } else {
+        point=CGPointMake(0, self.areaHeight*i);
+        size=CGSizeMake(22, self.areaHeight-20);
+    }
+    
+    
+    
+    UIImageView *imageView=[[UIImageView alloc]initWithFrame:CGRectMake(point.x,point.y,size.width, size.height)];
+    imageView.image=[UIImage imageNamed:@"stone"];
+    imageView.tag=22;
+    [self.view addSubview:imageView];
+}
 
 #pragma mark - Status Bar
 -(BOOL)prefersStatusBarHidden {

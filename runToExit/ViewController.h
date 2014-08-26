@@ -21,11 +21,16 @@
 @property float areaWidth;
 @property float areaHeight;
 
+// Alert at end of the row
+@property (nonatomic,strong) NSMutableDictionary *alerts;
+
 // area 0 control
 @property (nonatomic,strong) NSTimer *area0GeneratorTimer;
 @property (nonatomic,strong) NSTimer *area0Timer;
 @property int area0Tag;
 @property int area0ImageSequenceNumber;
+
+
 // area 1 control
 @property (nonatomic,strong) NSTimer *area1GeneratorTimer;
 @property (nonatomic,strong) NSTimer *area1Timer;
