@@ -31,6 +31,7 @@
 @property int area1Tag;
 @property int area1ImageSequenceNumber;
 // area 2 control
+@property (nonatomic,strong) NSTimer *area2GeneratorTimer;
 @property (nonatomic,strong) NSTimer *area2Timer;
 @property int area2Tag;
 @property int area2ImageSequenceNumber;
@@ -41,6 +42,7 @@
 
 // Character in UI
 @property (nonatomic,strong) NSMutableArray *area0Characters;
+@property (nonatomic,strong) NSMutableArray *area2Characters;
 // Characters images for animation
 @property (nonatomic,strong) NSMutableArray *area0Images;
 @property (nonatomic,strong) NSMutableArray *area1Images;
