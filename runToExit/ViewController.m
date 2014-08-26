@@ -18,8 +18,8 @@
 @synthesize character,area0Tag,area0Timer,area1Tag,area1Timer,area2Tag,area2Timer,area3Tag,area3Timer;
 @synthesize area0Images,area1Images,area2Images,area3Images;
 @synthesize area0ImageSequenceNumber,area1ImageSequenceNumber,area2ImageSequenceNumber,area3ImageSequenceNumber;
-@synthesize area0Characters,area2Characters;
-@synthesize area0GeneratorTimer,area2GeneratorTimer;
+@synthesize area0Characters,area1Characters,area2Characters;
+@synthesize area0GeneratorTimer,area1GeneratorTimer,area2GeneratorTimer,area3GeneratorTimer;
 
 
 #pragma mark - View Life Cycle
@@ -45,6 +45,7 @@
     [self setUpImagesForAnimations];
     
     self.area0Characters=[[NSMutableArray alloc]init];
+    self.area1Characters=[[NSMutableArray alloc]init];
     self.area2Characters=[[NSMutableArray alloc]init];
     
     // tags
@@ -63,17 +64,22 @@
     for (int i=0; i<AREA_COUNT; i++) {
         CGPoint position=CGPointMake(0, self.areaHeight*i);
         int tag;
+        int startX;
         if (i==0) {
             tag=self.area0Tag;
+            startX=-50;
         } else if (i==1) {
             tag=self.area1Tag;
+            startX=self.areaWidth+50;
         } else if (i==2) {
             tag=self.area2Tag;
+            startX=-50;
         } else {
             tag=self.area3Tag;
+            startX=self.areaWidth+50;
         }
         [self addAreaAtIndex:i position:position];
-        [self addCharacterAtIndex:i position:CGPointMake(0, position.y) tag:tag];
+        [self addCharacterAtIndex:i position:CGPointMake(startX, position.y) tag:tag];
     }
     
     // Start timers
@@ -81,7 +87,8 @@
     self.area0Timer=[NSTimer scheduledTimerWithTimeInterval:0.04f target:self selector:@selector(animateRow0) userInfo:nil repeats:YES];
     self.area0GeneratorTimer=[NSTimer scheduledTimerWithTimeInterval:2.9f target:self selector:@selector(auto0Generator) userInfo:nil repeats:YES];
     // Area 1
-    
+    self.area0Timer=[NSTimer scheduledTimerWithTimeInterval:0.03f target:self selector:@selector(animateRow1) userInfo:nil repeats:YES];
+    self.area0GeneratorTimer=[NSTimer scheduledTimerWithTimeInterval:2.9f target:self selector:@selector(auto1Generator) userInfo:nil repeats:YES];
     // Area 2
     self.area2Timer=[NSTimer scheduledTimerWithTimeInterval:0.075f target:self selector:@selector(animateRow2) userInfo:nil repeats:YES];
     self.area2GeneratorTimer=[NSTimer scheduledTimerWithTimeInterval:3.6f target:self selector:@selector(auto2Generator) userInfo:nil repeats:YES];
@@ -105,7 +112,10 @@
     [self.area0Images addObject:@"monkey_run_6"];
     [self.area0Images addObject:@"monkey_run_7"];
     // Area 1
-    
+    [self.area1Images addObject:@"croc_walk01"];
+    [self.area1Images addObject:@"croc_walk02"];
+    [self.area1Images addObject:@"croc_walk03"];
+    [self.area1Images addObject:@"croc_walk04"];
     // Area 2
     [self.area2Images addObject:@"monkey_run_0"];
     [self.area2Images addObject:@"monkey_run_1"];
@@ -160,11 +170,26 @@
         }
         
     }else if (i==1) {
-        rect=CGRectMake(self.areaWidth-46.6, position.y+56+4, 46.6, 56);
+        // rect=CGRectMake(self.areaWidth-46.6, position.y+56+4, 46.6, 56);
+        CGPoint point=CGPointMake(position.x, position.y+56+4);
+        CGSize size=CGSizeMake(46.6, 56);
+        rect = CGRectMake(point.x, point.y, size.width, size.height);
+        
+        imageName=[self.area1Images objectAtIndex:self.area1ImageSequenceNumber];
+        
         imageView=[[UIImageView alloc]initWithFrame:rect];
-        imageView.image=[UIImage imageNamed:@"croc_walk01"];
-        imageView.tag=self.area1Tag;
-        self.area1Tag++;
+        imageView.image=[UIImage imageNamed:imageName];
+        imageView.tag=tag;  // self.area0Tag;
+        
+        Character *objCharacter=[[Character alloc]initWithRectangle:imageView.frame imageName:imageName tag:imageView.tag];
+        [self.area1Characters addObject:objCharacter];
+        
+        // increment Image Sequence Number Control
+        self.area1ImageSequenceNumber++;
+        if (self.area1ImageSequenceNumber>self.area1Images.count-1) {
+            self.area1ImageSequenceNumber=0;
+        }
+        
     }else if (i==2) {
 //        rect=CGRectMake(position.x, position.y+56+4, 46.6, 56);
         CGPoint point=CGPointMake(position.x, position.y+56+4);
@@ -221,8 +246,6 @@
     
     // Add character in a new point with a new animation image
     for (Character *objDeleted in deleted) {
-
-        NSLog(@"point X=%f Y=%f     size Width=%f Height%f  image=%@",objDeleted.rectangle.origin.x,objDeleted.rectangle.origin.y,objDeleted.rectangle.size.width,objDeleted.rectangle.size.height,objDeleted.imageName);
         
         UIImageView *imageView=[[UIImageView alloc]initWithFrame:objDeleted.rectangle];
         imageView.tag=objDeleted.tag;
@@ -243,6 +266,48 @@
     
 }
 
+// Animate row 1
+-(void)animateRow1 {
+    
+    NSMutableArray *deleted=[[NSMutableArray alloc]init];
+    Character *characterDeleted=[[Character alloc]init];
+    NSString *imageName=[self.area1Images objectAtIndex:self.area1ImageSequenceNumber];
+    //
+    // Remove character from area 1
+    for (UIView *view in self.view.subviews) {
+        if (view.tag>=2000 && view.tag<=2999) {
+            if (view.center.x>=-25) {
+                characterDeleted=[[Character alloc]initWithRectangle:view.frame imageName:imageName tag:view.tag];
+                [deleted addObject:characterDeleted];
+            }
+            // remove character in area 0
+            [view removeFromSuperview];
+            
+        }
+    }
+    
+    // Add character in a new point with a new animation image
+    for (Character *objDeleted in deleted) {
+        
+        NSLog(@"(3)point X=%f Y=%f     size Width=%f Height%f  image=%@",objDeleted.rectangle.origin.x,objDeleted.rectangle.origin.y,objDeleted.rectangle.size.width,objDeleted.rectangle.size.height,objDeleted.imageName);
+        
+        UIImageView *imageView=[[UIImageView alloc]initWithFrame:objDeleted.rectangle];
+        imageView.tag=objDeleted.tag;
+        imageView.image=[UIImage imageNamed:objDeleted.imageName];
+        
+        CGPoint newCenter=CGPointMake(objDeleted.rectangle.origin.x-2.20f,self.areaHeight*1);
+        imageView.center=newCenter;
+        NSLog(@"(3) newCenter X=%f  Y=%f",newCenter.x,newCenter.y);
+        
+        [self addCharacterAtIndex:1 position:newCenter tag:objDeleted.tag];
+        
+        
+    }
+    // remove all objects from deleted
+    [deleted removeAllObjects];
+    
+    
+}
 
 // Animate row 2
 -(void)animateRow2 {
@@ -267,8 +332,6 @@
     
     // Add character in a new point with a new animation image
     for (Character *objDeleted in deleted) {
-        
-        NSLog(@"(2) point X=%f Y=%f     size Width=%f Height%f  image=%@",objDeleted.rectangle.origin.x,objDeleted.rectangle.origin.y,objDeleted.rectangle.size.width,objDeleted.rectangle.size.height,objDeleted.imageName);
         
         UIImageView *imageView=[[UIImageView alloc]initWithFrame:objDeleted.rectangle];
         imageView.tag=objDeleted.tag;
@@ -305,6 +368,22 @@
     }
     [self addCharacterAtIndex:0 position:CGPointMake(-50, self.areaHeight*0) tag:self.area0Tag];
 }
+
+-(void)auto1Generator {
+    // Manual random delay
+    int random=arc4random() %3;
+    if (random==0) {
+        return;
+    }
+    
+    self.area1Tag++;
+    if (self.area1Tag>=2990) {
+        self.area0Tag=2000;
+    }
+    [self addCharacterAtIndex:1 position:CGPointMake(self.areaWidth+46.6, self.areaHeight*1) tag:self.area1Tag];
+}
+
+
 
 -(void)auto2Generator {
     // Manual random delay
