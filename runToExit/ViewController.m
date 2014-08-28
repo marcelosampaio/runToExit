@@ -109,7 +109,6 @@
     self.area2Images=[[NSMutableArray alloc]init];
     self.area3Images=[[NSMutableArray alloc]init];
     // Area 0
-    [self.area0Images addObject:@"monkey_run_0"];
     [self.area0Images addObject:@"monkey_run_1"];
     [self.area0Images addObject:@"monkey_run_2"];
     [self.area0Images addObject:@"monkey_run_3"];
@@ -117,13 +116,13 @@
     [self.area0Images addObject:@"monkey_run_5"];
     [self.area0Images addObject:@"monkey_run_6"];
     [self.area0Images addObject:@"monkey_run_7"];
+    [self.area0Images addObject:@"monkey_run_8"];
     // Area 1
     [self.area1Images addObject:@"croc_walk01"];
     [self.area1Images addObject:@"croc_walk02"];
     [self.area1Images addObject:@"croc_walk03"];
     [self.area1Images addObject:@"croc_walk04"];
     // Area 2
-    [self.area2Images addObject:@"monkey_run_0"];
     [self.area2Images addObject:@"monkey_run_1"];
     [self.area2Images addObject:@"monkey_run_2"];
     [self.area2Images addObject:@"monkey_run_3"];
@@ -131,6 +130,7 @@
     [self.area2Images addObject:@"monkey_run_5"];
     [self.area2Images addObject:@"monkey_run_6"];
     [self.area2Images addObject:@"monkey_run_7"];
+    [self.area2Images addObject:@"monkey_run_8"];
     // Area 3
     [self.area3Images addObject:@"bear1"];
     [self.area3Images addObject:@"bear2"];
