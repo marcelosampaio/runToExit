@@ -20,6 +20,7 @@
 @synthesize area0ImageSequenceNumber,area1ImageSequenceNumber,area2ImageSequenceNumber,area3ImageSequenceNumber;
 @synthesize area0Characters,area1Characters,area2Characters,area3Characters;
 @synthesize area0GeneratorTimer,area1GeneratorTimer,area2GeneratorTimer,area3GeneratorTimer;
+@synthesize area0IsNotified,area1IsNotified,area2IsNotified,area3IsNotified;
 @synthesize alerts;
 
 #pragma mark - View Life Cycle
@@ -64,6 +65,12 @@
     self.area1ImageSequenceNumber=0;
     self.area2ImageSequenceNumber=0;
     self.area3ImageSequenceNumber=0;
+    
+    // Alerts
+    self.area0IsNotified=NO;
+    self.area1IsNotified=NO;
+    self.area2IsNotified=NO;
+    self.area3IsNotified=NO;
 
     // define and add areas (rows) and characters into UI
     for (int i=0; i<AREA_COUNT; i++) {
@@ -527,17 +534,56 @@
     if (i==0 || i==2) {
         point=CGPointMake(self.areaWidth-20, self.areaHeight*i);
         size=CGSizeMake(22, self.areaHeight-20);
+        
+        // Notify UI that there is an obstacle at the end
+        if (i==0) {
+            self.area0IsNotified=YES;
+        } else {
+            self.area1IsNotified=YES;
+        }
     } else {
         point=CGPointMake(0, self.areaHeight*i);
         size=CGSizeMake(22, self.areaHeight-20);
+        
+        // Notify UI that there is an obstacle at the end
+        if (i==3) {
+            self.area2IsNotified=YES;
+        } else {
+            self.area3IsNotified=YES;
+        }
     }
-    
-    
-    
+
     UIImageView *imageView=[[UIImageView alloc]initWithFrame:CGRectMake(point.x,point.y,size.width, size.height)];
     imageView.image=[UIImage imageNamed:@"stone"];
     imageView.tag=22;
+    // Show Alert
     [self.view addSubview:imageView];
+}
+
+#pragma mark - Touch Events
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+
+    NSLog(@"touch detected");
+    UITouch *myTouch = [touches anyObject];
+    CGPoint point = [myTouch locationInView:self.view];
+    
+    float begin=0;
+    float end=0;
+    
+    for (int i=0; i<AREA_COUNT; i++) {
+        begin=self.areaHeight*i;
+        end=begin+self.areaHeight;
+        
+        if (point.y>begin && point.y<end) {
+            [self touchedArea:i];
+        }
+    }
+
+}
+
+-(void)touchedArea:(int)i {
+    NSLog(@"touched area %d",i);
 }
 
 #pragma mark - Status Bar
