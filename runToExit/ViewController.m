@@ -22,6 +22,8 @@
 @synthesize area0GeneratorTimer,area1GeneratorTimer,area2GeneratorTimer,area3GeneratorTimer;
 @synthesize area0IsNotified,area1IsNotified,area2IsNotified,area3IsNotified;
 @synthesize alerts;
+@synthesize backgroundMusicPlayer1,backgroundMusicPlayer2,backgroundMusicPlayer3,backgroundMusicPlayer4,backgroundMusicPlayer5,backgroundMusicPlayer6,backgroundMusicPlayer7;
+@synthesize eventualTimer,eventualTimer2;
 
 #pragma mark - View Life Cycle
 - (void)viewDidLoad
@@ -37,6 +39,10 @@
 #pragma mark - UI Setup
 -(void)setUp {
 
+    // Play eventual background sound
+    self.eventualTimer=[NSTimer scheduledTimerWithTimeInterval:27.50f target:self selector:@selector(playLaughingBirds) userInfo:nil repeats:YES];
+    self.eventualTimer=[NSTimer scheduledTimerWithTimeInterval:18.75f target:self selector:@selector(playHawk) userInfo:nil repeats:YES];
+    
     // Settings
     self.settings=[[Settings alloc]init];
     self.areaWidth=self.view.frame.size.width;
@@ -107,6 +113,7 @@
     // Area 3
     self.area3Timer=[NSTimer scheduledTimerWithTimeInterval:0.15f target:self selector:@selector(animateRow3) userInfo:nil repeats:YES];
     self.area3GeneratorTimer=[NSTimer scheduledTimerWithTimeInterval:9.5f target:self selector:@selector(auto3Generator) userInfo:nil repeats:YES];
+
 }
 
 -(void)setUpImagesForAnimations {
@@ -446,6 +453,7 @@
     if (self.area0Tag>=1990) {
         self.area0Tag=1000;
     }
+    [self playMonkey];
     [self addCharacterAtIndex:0 position:CGPointMake(-50, self.areaHeight*0) tag:self.area0Tag];
 }
 
@@ -461,6 +469,7 @@
         self.area0Tag=2000;
     }
     [self addCharacterAtIndex:1 position:CGPointMake(self.areaWidth+46.6, self.areaHeight*1) tag:self.area1Tag];
+    [self playCrocodile];
 }
 
 
@@ -476,6 +485,7 @@
     if (self.area2Tag>=3990) {
         self.area2Tag=3000;
     }
+    [self playMonkey];
     [self addCharacterAtIndex:2 position:CGPointMake(-50, self.areaHeight*2) tag:self.area2Tag];
 }
 
@@ -491,6 +501,7 @@
     if (self.area1Tag>=4990) {
         self.area0Tag=4000;
     }
+    [self playBear];
     [self addCharacterAtIndex:3 position:CGPointMake(self.areaWidth+46.6, self.areaHeight*1) tag:self.area3Tag];
 }
 
@@ -585,6 +596,63 @@
 -(void)touchedArea:(int)i {
     NSLog(@"touched area %d",i);
 }
+
+#pragma mark - background Sounds
+-(void)playMonkey {
+    NSLog(@"play monkey");
+    NSError *error;
+    NSURL *backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"gorilla" withExtension:@"mp3"];
+    
+    
+    self.backgroundMusicPlayer3 = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
+    self.backgroundMusicPlayer3.numberOfLoops = 0;
+    [self.backgroundMusicPlayer3 prepareToPlay];
+    [self.backgroundMusicPlayer3 play];
+}
+-(void)playCrocodile {
+    NSLog(@"play croc");
+    NSError *error;
+    NSURL *backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"alligator" withExtension:@"mp3"];
+    
+    
+    self.backgroundMusicPlayer4 = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
+    self.backgroundMusicPlayer4.numberOfLoops = 0;
+    [self.backgroundMusicPlayer4 prepareToPlay];
+    [self.backgroundMusicPlayer4 play];
+}
+-(void)playBear {
+    NSLog(@"play bear");
+    NSError *error;
+    NSURL *backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"bear" withExtension:@"mp3"];
+    
+    
+    self.backgroundMusicPlayer5 = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
+    self.backgroundMusicPlayer5.numberOfLoops = 0;
+    [self.backgroundMusicPlayer5 prepareToPlay];
+    [self.backgroundMusicPlayer5 play];
+}
+
+
+-(void)playLaughingBirds {
+    NSError *error;
+    NSURL *backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"laughingBirds" withExtension:@"mp3"];
+    
+    self.backgroundMusicPlayer6 = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
+    self.backgroundMusicPlayer6.numberOfLoops = 0;
+    [self.backgroundMusicPlayer6 prepareToPlay];
+    [self.backgroundMusicPlayer6 play];
+}
+
+-(void)playHawk {
+    NSError *error;
+    NSURL *backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"hawkCall" withExtension:@"mp3"];
+    
+    self.backgroundMusicPlayer7 = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
+    self.backgroundMusicPlayer7.numberOfLoops = 0;
+    [self.backgroundMusicPlayer7 prepareToPlay];
+    [self.backgroundMusicPlayer7 play];
+}
+
 
 #pragma mark - Status Bar
 -(BOOL)prefersStatusBarHidden {

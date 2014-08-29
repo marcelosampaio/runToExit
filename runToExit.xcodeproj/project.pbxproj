@@ -23,6 +23,23 @@
 		9C0F441E19AA457400F6896B /* runToExitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F441D19AA457400F6896B /* runToExitTests.m */; };
 		9C0F442E19AA4F7600F6896B /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F442D19AA4F7600F6896B /* Settings.m */; };
 		9C430C2B19AB6A54009A9F55 /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C430C2A19AB6A54009A9F55 /* Character.m */; };
+		9C53B6A219AF938100498F1C /* waterFall.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9C53B69519AF938100498F1C /* waterFall.mp3 */; };
+		9C53B6A319AF938100498F1C /* rainForest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9C53B69619AF938100498F1C /* rainForest.mp3 */; };
+		9C53B6A419AF938100498F1C /* rainAndCrickets.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9C53B69719AF938100498F1C /* rainAndCrickets.mp3 */; };
+		9C53B6A519AF938100498F1C /* laughingBirds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9C53B69819AF938100498F1C /* laughingBirds.mp3 */; };
+		9C53B6A619AF938100498F1C /* jungleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9C53B69919AF938100498F1C /* jungleSound.mp3 */; };
+		9C53B6A719AF938100498F1C /* hawkCall.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9C53B69A19AF938100498F1C /* hawkCall.mp3 */; };
+		9C53B6A819AF938100498F1C /* gorilla.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9C53B69B19AF938100498F1C /* gorilla.mp3 */; };
+		9C53B6A919AF938100498F1C /* elephant.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9C53B69C19AF938100498F1C /* elephant.mp3 */; };
+		9C53B6AA19AF938100498F1C /* congoDrummer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9C53B69D19AF938100498F1C /* congoDrummer.mp3 */; };
+		9C53B6AB19AF938100498F1C /* birdsAndMonkeys.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9C53B69E19AF938100498F1C /* birdsAndMonkeys.mp3 */; };
+		9C53B6AC19AF938100498F1C /* birds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9C53B69F19AF938100498F1C /* birds.mp3 */; };
+		9C53B6AD19AF938100498F1C /* ape.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9C53B6A019AF938100498F1C /* ape.mp3 */; };
+		9C53B6AE19AF938100498F1C /* alligator.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9C53B6A119AF938100498F1C /* alligator.mp3 */; };
+		9C53B6B119AF951A00498F1C /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C53B6B019AF951A00498F1C /* IntroViewController.m */; };
+		9C53B6B319AF986200498F1C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C53B6B219AF986200498F1C /* AudioToolbox.framework */; };
+		9C53B6B519AF986B00498F1C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C53B6B419AF986B00498F1C /* AVFoundation.framework */; };
+		9C53B6B719AFA70500498F1C /* bear.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9C53B6B619AFA70500498F1C /* bear.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +76,24 @@
 		9C0F442D19AA4F7600F6896B /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		9C430C2919AB6A54009A9F55 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
 		9C430C2A19AB6A54009A9F55 /* Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Character.m; sourceTree = "<group>"; };
+		9C53B69519AF938100498F1C /* waterFall.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = waterFall.mp3; sourceTree = "<group>"; };
+		9C53B69619AF938100498F1C /* rainForest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rainForest.mp3; sourceTree = "<group>"; };
+		9C53B69719AF938100498F1C /* rainAndCrickets.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rainAndCrickets.mp3; sourceTree = "<group>"; };
+		9C53B69819AF938100498F1C /* laughingBirds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = laughingBirds.mp3; sourceTree = "<group>"; };
+		9C53B69919AF938100498F1C /* jungleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jungleSound.mp3; sourceTree = "<group>"; };
+		9C53B69A19AF938100498F1C /* hawkCall.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hawkCall.mp3; sourceTree = "<group>"; };
+		9C53B69B19AF938100498F1C /* gorilla.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gorilla.mp3; sourceTree = "<group>"; };
+		9C53B69C19AF938100498F1C /* elephant.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = elephant.mp3; sourceTree = "<group>"; };
+		9C53B69D19AF938100498F1C /* congoDrummer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = congoDrummer.mp3; sourceTree = "<group>"; };
+		9C53B69E19AF938100498F1C /* birdsAndMonkeys.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = birdsAndMonkeys.mp3; sourceTree = "<group>"; };
+		9C53B69F19AF938100498F1C /* birds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = birds.mp3; sourceTree = "<group>"; };
+		9C53B6A019AF938100498F1C /* ape.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ape.mp3; sourceTree = "<group>"; };
+		9C53B6A119AF938100498F1C /* alligator.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alligator.mp3; sourceTree = "<group>"; };
+		9C53B6AF19AF951A00498F1C /* IntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroViewController.h; sourceTree = "<group>"; };
+		9C53B6B019AF951A00498F1C /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroViewController.m; sourceTree = "<group>"; };
+		9C53B6B219AF986200498F1C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		9C53B6B419AF986B00498F1C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		9C53B6B619AFA70500498F1C /* bear.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bear.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C53B6B519AF986B00498F1C /* AVFoundation.framework in Frameworks */,
+				9C53B6B319AF986200498F1C /* AudioToolbox.framework in Frameworks */,
 				9C0F43F519AA457400F6896B /* CoreGraphics.framework in Frameworks */,
 				9C0F43F719AA457400F6896B /* UIKit.framework in Frameworks */,
 				9C0F43F319AA457400F6896B /* Foundation.framework in Frameworks */,
@@ -107,6 +144,8 @@
 		9C0F43F119AA457400F6896B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9C53B6B419AF986B00498F1C /* AVFoundation.framework */,
+				9C53B6B219AF986200498F1C /* AudioToolbox.framework */,
 				9C0F43F219AA457400F6896B /* Foundation.framework */,
 				9C0F43F419AA457400F6896B /* CoreGraphics.framework */,
 				9C0F43F619AA457400F6896B /* UIKit.framework */,
@@ -131,6 +170,7 @@
 		9C0F43F919AA457400F6896B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9C53B69419AF936900498F1C /* Audio */,
 				9C0F43FA19AA457400F6896B /* runToExit-Info.plist */,
 				9C0F43FB19AA457400F6896B /* InfoPlist.strings */,
 				9C0F43FE19AA457400F6896B /* main.m */,
@@ -160,6 +200,8 @@
 		9C0F442719AA4DFC00F6896B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9C53B6AF19AF951A00498F1C /* IntroViewController.h */,
+				9C53B6B019AF951A00498F1C /* IntroViewController.m */,
 				9C0F440719AA457400F6896B /* ViewController.h */,
 				9C0F440819AA457400F6896B /* ViewController.m */,
 			);
@@ -192,6 +234,27 @@
 				9C430C2A19AB6A54009A9F55 /* Character.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		9C53B69419AF936900498F1C /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				9C53B69519AF938100498F1C /* waterFall.mp3 */,
+				9C53B6B619AFA70500498F1C /* bear.mp3 */,
+				9C53B69619AF938100498F1C /* rainForest.mp3 */,
+				9C53B69719AF938100498F1C /* rainAndCrickets.mp3 */,
+				9C53B69819AF938100498F1C /* laughingBirds.mp3 */,
+				9C53B69919AF938100498F1C /* jungleSound.mp3 */,
+				9C53B69A19AF938100498F1C /* hawkCall.mp3 */,
+				9C53B69B19AF938100498F1C /* gorilla.mp3 */,
+				9C53B69C19AF938100498F1C /* elephant.mp3 */,
+				9C53B69D19AF938100498F1C /* congoDrummer.mp3 */,
+				9C53B69E19AF938100498F1C /* birdsAndMonkeys.mp3 */,
+				9C53B69F19AF938100498F1C /* birds.mp3 */,
+				9C53B6A019AF938100498F1C /* ape.mp3 */,
+				9C53B6A119AF938100498F1C /* alligator.mp3 */,
+			);
+			name = Audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,9 +333,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C53B6AA19AF938100498F1C /* congoDrummer.mp3 in Resources */,
+				9C53B6A419AF938100498F1C /* rainAndCrickets.mp3 in Resources */,
 				9C0F440B19AA457400F6896B /* Images.xcassets in Resources */,
+				9C53B6AD19AF938100498F1C /* ape.mp3 in Resources */,
+				9C53B6A219AF938100498F1C /* waterFall.mp3 in Resources */,
+				9C53B6A819AF938100498F1C /* gorilla.mp3 in Resources */,
+				9C53B6A719AF938100498F1C /* hawkCall.mp3 in Resources */,
+				9C53B6A919AF938100498F1C /* elephant.mp3 in Resources */,
+				9C53B6AB19AF938100498F1C /* birdsAndMonkeys.mp3 in Resources */,
+				9C53B6A619AF938100498F1C /* jungleSound.mp3 in Resources */,
+				9C53B6B719AFA70500498F1C /* bear.mp3 in Resources */,
+				9C53B6AE19AF938100498F1C /* alligator.mp3 in Resources */,
+				9C53B6A519AF938100498F1C /* laughingBirds.mp3 in Resources */,
 				9C0F43FD19AA457400F6896B /* InfoPlist.strings in Resources */,
+				9C53B6A319AF938100498F1C /* rainForest.mp3 in Resources */,
 				9C0F440619AA457400F6896B /* Main.storyboard in Resources */,
+				9C53B6AC19AF938100498F1C /* birds.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C0F440919AA457400F6896B /* ViewController.m in Sources */,
+				9C53B6B119AF951A00498F1C /* IntroViewController.m in Sources */,
 				9C430C2B19AB6A54009A9F55 /* Character.m in Sources */,
 				9C0F440319AA457400F6896B /* AppDelegate.m in Sources */,
 				9C0F442E19AA4F7600F6896B /* Settings.m in Sources */,

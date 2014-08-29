@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 #import "Settings.h"
 #import "Character.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController {
+    SystemSoundID soundId;
+}
 
 // Objects
 @property (nonatomic,strong) Settings *settings;
@@ -64,4 +68,16 @@
 
 
 
+// Sound track
+@property (strong,nonatomic) AVAudioPlayer *backgroundMusicPlayer1;
+@property (strong,nonatomic) AVAudioPlayer *backgroundMusicPlayer2;
+@property (strong,nonatomic) AVAudioPlayer *backgroundMusicPlayer3;
+@property (strong,nonatomic) AVAudioPlayer *backgroundMusicPlayer4;
+@property (strong,nonatomic) AVAudioPlayer *backgroundMusicPlayer5;
+@property (strong,nonatomic) AVAudioPlayer *backgroundMusicPlayer6;
+@property (strong,nonatomic) AVAudioPlayer *backgroundMusicPlayer7;
+
+// Timer for eventual background sound
+@property (nonatomic,strong) NSTimer *eventualTimer;
+@property (nonatomic,strong) NSTimer *eventualTimer2;
 @end
